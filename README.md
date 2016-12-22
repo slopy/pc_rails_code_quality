@@ -21,11 +21,22 @@ Or install it yourself as:
 $ gem install pc_rails_code_quality
 ```
 
-## Generating 
+## Generating reports
 
 ```bash
 $ rake pc_reports:html
 ```
+
+## Web UI
+
+Add to you routes.rb
+```ruby
+mount PcRailsCodeQuality::Engine => "/"
+```
+
+Then you can access the reports:
+* **rubocop** /dev/reports/rubocop 
+
 
 
 ## Contributing
