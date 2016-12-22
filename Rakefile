@@ -17,12 +17,10 @@ end
 APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
 
+Bundler::GemHelper.install_tasks
 
-load 'rails/tasks/statistics.rake'
-
-
-
-require 'bundler/gem_tasks'
+spec = Gem::Specification.find_by_name 'rubocop'
+Rake.add_rakelib "#{spec.gem_dir}/lib/tasks/"
 
 require 'rake/testtask'
 
@@ -32,6 +30,5 @@ Rake::TestTask.new(:test) do |t|
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
 end
-
 
 task default: :test
