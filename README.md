@@ -1,5 +1,5 @@
 # PcRailsCodeQuality
-Short description and motivation.
+This gem is about to make the code better.. 
 
 ## Usage
 How to use my plugin.
@@ -8,7 +8,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pc_rails_code_quality'
+gem 'pc_rails_code_quality', :git => 'https://github.com/slopy/pc_rails_code_quality'
 ```
 
 And then execute:
@@ -21,8 +21,15 @@ Or install it yourself as:
 $ gem install pc_rails_code_quality
 ```
 
+## Generating 
+
+```bash
+$ rake pc_reports:html
+```
+
+
 ## Contributing
-Contribution directions go here.
+Contact: michal.marzec@polcode.net
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
