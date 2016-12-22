@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = PcRailsCodeQuality::VERSION
   s.authors     = ["Slopy"]
   s.email       = ["mic.mar@live.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of PcRailsCodeQuality."
-  s.description = "TODO: Description of PcRailsCodeQuality."
+  s.homepage    = "https://github.com/slopy/pc_rails_code_quality"
+  s.summary     = "Banch of developer tools"
+  s.description = "Banch of developer tools..."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
