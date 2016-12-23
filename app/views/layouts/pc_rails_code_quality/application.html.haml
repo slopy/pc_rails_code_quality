@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Pc rails code quality
+    = stylesheet_link_tag    "pc_rails_code_quality/application", media: "all"
+    = javascript_include_tag "pc_rails_code_quality/application"
+    = csrf_meta_tags
+  %body
+    .container
+      = yield
