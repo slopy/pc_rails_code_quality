@@ -7,5 +7,7 @@
     = javascript_include_tag "pc_rails_code_quality/application"
     = csrf_meta_tags
   %body
+    .menu
+      = link_to 'Rubocop', dev_rubocop_html_report_path
     .container
       = yield
