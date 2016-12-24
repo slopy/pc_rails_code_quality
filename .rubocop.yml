@@ -18,6 +18,7 @@ Metrics/LineLength:
 
 AllCops:
   Exclude:
+    - 'vendor/**/*'
     - 'test/dummy/**/*'
     - 'tmp/**/*'
   TargetRubyVersion: 2.3
