@@ -1,11 +1,17 @@
 require 'test_helper'
 
 module PcRailsCodeQuality
-  class Dev::ReportsControllerTest < ActionDispatch::IntegrationTest
+  class Dev::HtmlReportsControllerTest < ActionDispatch::IntegrationTest
     include Engine.routes.url_helpers
 
-    # test "the truth" do
-    #   assert true
-    # end
+    test "#rubocop" do
+      get dev_rubocop_html_report_path
+      assert_response :success
+    end
+
+    test "#run_rubocop" do
+      get dev_run_rubocop_html_report_path
+      assert_redirected_to dev_rubocop_html_report_path
+    end
   end
 end
