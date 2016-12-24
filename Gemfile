@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source 'https://rubygems.org'
 
 # Declare your gem's dependencies in pc_rails_code_quality.gemspec.
@@ -11,4 +12,5 @@ gemspec
 # your gem to rubygems.org.
 
 # To use a debugger
-# gem 'byebug', group: [:development, :test]
+gem 'byebug', group: [:development, :test]
+gem 'haml-rails', '~> 0.9'

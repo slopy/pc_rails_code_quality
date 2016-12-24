@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -14,15 +15,13 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
+APP_RAKEFILE = File.expand_path('../test/dummy/Rakefile', __FILE__)
 load 'rails/tasks/engine.rake'
 
+Bundler::GemHelper.install_tasks
 
-load 'rails/tasks/statistics.rake'
-
-
-
-require 'bundler/gem_tasks'
+spec = Gem::Specification.find_by_name 'rubocop'
+Rake.add_rakelib "#{spec.gem_dir}/lib/tasks/"
 
 require 'rake/testtask'
 
@@ -31,7 +30,7 @@ Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
+  t.warning = false
 end
-
 
 task default: :test
