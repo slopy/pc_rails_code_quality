@@ -14,3 +14,8 @@ gemspec
 # To use a debugger
 gem 'byebug', group: [:development, :test]
 gem 'haml-rails', '~> 0.9'
+
+group :test do
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'simplecov'
+end
