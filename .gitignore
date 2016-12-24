@@ -9,3 +9,5 @@ test/dummy/tmp/
 /test/dummy/public/reports/
 
 /test/dummy/db/
+
+/public/
