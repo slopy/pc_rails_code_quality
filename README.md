@@ -1,3 +1,8 @@
+[![Code Climate](https://codeclimate.com/github/slopy/pc_rails_code_quality/badges/gpa.svg)](https://codeclimate.com/github/slopy/pc_rails_code_quality)
+[![Test Coverage](https://codeclimate.com/github/slopy/pc_rails_code_quality/badges/coverage.svg)](https://codeclimate.com/github/slopy/pc_rails_code_quality/coverage)
+[![Issue Count](https://codeclimate.com/github/slopy/pc_rails_code_quality/badges/issue_count.svg)](https://codeclimate.com/github/slopy/pc_rails_code_quality)
+[![Build Status](https://travis-ci.org/slopy/pc_rails_code_quality.svg?branch=master)](https://travis-ci.org/slopy/pc_rails_code_quality)
+
 # PcRailsCodeQuality
 This gem is about to make the code better.. 
 
