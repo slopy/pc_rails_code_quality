@@ -1,4 +1,6 @@
+# frozen_string_literal: true
 module PcRailsCodeQuality
+  # :nodoc:
   class Analysis
     def self.run_html_reports
       run_rubocop
