@@ -7,9 +7,16 @@ module PcRailsCodeQuality
     class HtmlReportsController < ApplicationController
       def rubocop; end
 
+      def rubycritic; end
+
       def run_rubocop
         PcRailsCodeQuality::Analysis.run_rubocop_html_report
         redirect_to dev_rubocop_html_report_path
+      end
+
+      def run_rubycritic
+        PcRailsCodeQuality::Analysis.run_rubycritic_html_report
+        redirect_to dev_rubycritic_html_report_path
       end
     end
   end
