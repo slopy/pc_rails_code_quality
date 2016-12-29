@@ -3,7 +3,8 @@ module PcRailsCodeQuality
   # :nodoc:
   class Analysis
     def self.run_html_reports
-      run_rubocop
+      run_rubocop_html_report
+      run_rubycritic_html_report
     end
 
     def self.run_rubocop_html_report
