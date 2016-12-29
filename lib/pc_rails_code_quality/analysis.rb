@@ -11,5 +11,11 @@ module PcRailsCodeQuality
       options = %w(-fhtml -opublic/reports/rubocop.html)
       RuboCop::CLI.new.run(options)
     end
+
+    def self.run_rubycritic_html_report
+      require 'rubycritic/cli/application'
+      arguments = %w(app lib -p public/reports/ruby_critic --no-browser --format html)
+      RubyCritic::Cli::Application.new(arguments).execute
+    end
   end
 end
