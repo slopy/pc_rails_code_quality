@@ -21,6 +21,22 @@ module PcRailsCodeQuality
         get dev_run_rubocop_html_report_path
         assert_redirected_to dev_rubocop_html_report_path
       end
+
+      test '#rubycritic' do
+        get dev_rubycritic_html_report_path
+        assert_response :success
+      end
+
+      test '#rubycritic iframe' do
+        get dev_rubycritic_html_report_path
+        assert_select 'iframe#rubycritic-html-report'
+        assert_select 'iframe#rubycritic-html-report', href: /rubycritic/
+      end
+
+      test '#run_rubycritic' do
+        get dev_run_rubycritic_html_report_path
+        assert_redirected_to dev_rubycritic_html_report_path
+      end
     end
   end
 end

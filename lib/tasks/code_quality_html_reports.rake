@@ -8,8 +8,12 @@ namespace :pc_reports do
     tsk.fail_on_error = false
   end
 
+  task :rubycritic_html do
+    sh 'rubycritic app lib -p public/reports/ruby_critic --no-browser --format html'
+  end
+
   task :html do
     puts 'Generating html reports...'
-    %w(rubocop_html).each { |task| Rake::Task["pc_reports:#{task}"].invoke }
+    %w(rubocop_html rubycritic_html).each { |task| Rake::Task["pc_reports:#{task}"].invoke }
   end
 end
