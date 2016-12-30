@@ -13,8 +13,10 @@ gemspec
 
 # To use a debugger
 gem 'byebug', group: [:development, :test]
+gem 'pry-rails', group: [:development, :test]
 
 group :test do
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'simplecov'
+  gem 'sqlite3'
 end
