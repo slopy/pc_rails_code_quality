@@ -11,9 +11,14 @@ class PcRailsCodeQuality::Analysis::Test < ActiveSupport::TestCase
     assert File.open('public/reports/rubocop.html')
   end
   
-  test '#run_run_rubycritic_html_report_html_report generate a file' do
+  test '#run_rubycritic_html_report generate a file' do
     PcRailsCodeQuality::Analysis.run_rubycritic_html_report
-    assert File.open('public/reports/rubocop.html')
+    assert File.open('public/reports/ruby_critic/overview.html')
   end
 
+  # ToDo - wirte some test for this one
+  # test '#run_simplecov_html_report generate a file' do
+  #   PcRailsCodeQuality::Analysis.run_simplecov_html_report
+  #   assert File.open('public/reports/simplecov/index.html')
+  # end
 end

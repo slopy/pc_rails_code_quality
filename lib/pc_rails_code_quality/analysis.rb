@@ -6,6 +6,7 @@ module PcRailsCodeQuality
       run_rubocop_html_report
       run_rubycritic_html_report
       run_simplecov_html_report
+      true
     end
 
     def self.run_rubocop_html_report
@@ -21,7 +22,13 @@ module PcRailsCodeQuality
     end
 
     def self.run_simplecov_html_report
-      system('bundle exec rake pc_reports:simplecov_html')
+      require 'rake'
+      Rake::Task.clear
+      Rails.application.load_tasks
+      if Rake::Task.task_defined?('pc_reports:simplecov_html')
+        @task = Rake::Task['pc_reports:simplecov_html'].to_s 
+      end
+      system("bundle exec rake #{@task}") if @task
     end
   end
 end
