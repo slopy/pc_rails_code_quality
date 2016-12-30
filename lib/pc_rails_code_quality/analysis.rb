@@ -5,6 +5,8 @@ module PcRailsCodeQuality
     def self.run_html_reports
       run_rubocop_html_report
       run_rubycritic_html_report
+      run_simplecov_html_report
+      true
     end
 
     def self.run_rubocop_html_report
@@ -17,6 +19,13 @@ module PcRailsCodeQuality
       require 'rubycritic/cli/application'
       arguments = %w(app lib -p public/reports/ruby_critic --no-browser --format html)
       RubyCritic::Cli::Application.new(arguments).execute
+    end
+
+    def self.run_simplecov_html_report
+      require 'rake'
+      Rake::Task.clear
+      Rails.application.load_tasks
+      `bundle exec rake pc_reports:simplecov_html` if Rake::Task.task_defined?('pc_reports:simplecov_html')
     end
   end
 end

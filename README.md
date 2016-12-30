@@ -41,7 +41,11 @@ mount PcRailsCodeQuality::Engine => "/"
 
 Then you can access the reports:
 * **rubocop** /dev/reports/rubocop 
+* **rubocop** /dev/reports/rubycritic 
 
+
+** SimpleCov
+add require "pc_rails_code_quality/simplecov" to you test_helper or spec_helper
 
 
 ## Contributing

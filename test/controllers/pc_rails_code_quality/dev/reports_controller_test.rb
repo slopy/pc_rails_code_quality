@@ -37,6 +37,22 @@ module PcRailsCodeQuality
         get dev_run_rubycritic_html_report_path
         assert_redirected_to dev_rubycritic_html_report_path
       end
+      
+      test '#simplecov' do
+        get dev_simplecov_html_report_path
+        assert_response :success
+      end
+
+      test '#simplecov iframe' do
+        get dev_simplecov_html_report_path
+        assert_select 'iframe#simplecov-html-report'
+        assert_select 'iframe#simplecov-html-report', href: /simplecov/
+      end
+
+      test '#run_simplecov' do
+        get dev_run_simplecov_html_report_path
+        assert_redirected_to dev_simplecov_html_report_path
+      end
     end
   end
 end
