@@ -13,8 +13,8 @@ namespace :pc_reports do
   end
 
   task :simplecov_html do
-    Rake::Task["spec"].invoke if Rake::Task.task_defined?('spec')
-    Rake::Task["test"].invoke if Rake::Task.task_defined?('test')
+    Rake::Task['spec'].invoke if Rake::Task.task_defined?('spec')
+    Rake::Task['test'].invoke if Rake::Task.task_defined?('test')
   end
 
   task :html do

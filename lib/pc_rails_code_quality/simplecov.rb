@@ -2,7 +2,7 @@
 module PcRailsCodeQuality
   # :nodoc:
   module Simplecov
-    require "simplecov"
+    require 'simplecov'
 
     SimpleCov.start 'rails' do
       coverage_dir 'public/reports/simplecov'

@@ -25,10 +25,7 @@ module PcRailsCodeQuality
       require 'rake'
       Rake::Task.clear
       Rails.application.load_tasks
-      if Rake::Task.task_defined?('pc_reports:simplecov_html')
-        @task = Rake::Task['pc_reports:simplecov_html'].to_s 
-      end
-      system("bundle exec rake #{@task}") if @task
+      `bundle exec rake pc_reports:simplecov_html` if Rake::Task.task_defined?('pc_reports:simplecov_html')
     end
   end
 end
