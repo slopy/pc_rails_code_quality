@@ -9,6 +9,8 @@ module PcRailsCodeQuality
 
       def rubycritic; end
 
+      def simplecov; end
+
       def run_rubocop
         PcRailsCodeQuality::Analysis.run_rubocop_html_report
         redirect_to dev_rubocop_html_report_path
@@ -17,6 +19,11 @@ module PcRailsCodeQuality
       def run_rubycritic
         PcRailsCodeQuality::Analysis.run_rubycritic_html_report
         redirect_to dev_rubycritic_html_report_path
+      end
+
+      def run_simplecov
+        PcRailsCodeQuality::Analysis.run_simplecov_html_report
+        redirect_to dev_simplecov_html_report_path
       end
     end
   end
