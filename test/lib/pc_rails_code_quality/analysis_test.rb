@@ -27,4 +27,9 @@ class PcRailsCodeQuality::Analysis::Test < ActiveSupport::TestCase
     `cd test/dummy/ && bundle exec rake pc_reports:simplecov_html`
     assert File.open(Rails.root + 'public/reports/simplecov/index.html')
   end
+
+  test '#run_rails_best_practices_html_report generate a file' do
+    PcRailsCodeQuality::Analysis.run_rails_best_practices_html_report
+    assert File.open('public/reports/rails_best_practices.html')
+  end
 end
