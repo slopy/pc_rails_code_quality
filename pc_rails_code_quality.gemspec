@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'rubocop', '~> 0.46.0'
   s.add_dependency 'rubycritic', '~> 3.1.3'
   s.add_dependency 'simplecov', '~> 0.12.0'
+  s.add_dependency 'rails_best_practices', '~> 1.17.0'
 end

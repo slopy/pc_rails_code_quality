@@ -37,7 +37,7 @@ module PcRailsCodeQuality
         get dev_run_rubycritic_html_report_path
         assert_redirected_to dev_rubycritic_html_report_path
       end
-      
+
       test '#simplecov' do
         get dev_simplecov_html_report_path
         assert_response :success
@@ -52,6 +52,22 @@ module PcRailsCodeQuality
       test '#run_simplecov' do
         get dev_run_simplecov_html_report_path
         assert_redirected_to dev_simplecov_html_report_path
+      end
+
+      test '#rails_best_practices' do
+        get dev_rails_best_practices_html_report_path
+        assert_response :success
+      end
+
+      test '#rails_best_practices iframe' do
+        get dev_rails_best_practices_html_report_path
+        assert_select 'iframe#rails_best_practices-html-report'
+        assert_select 'iframe#rails_best_practices-html-report', href: /simplecov/
+      end
+
+      test '#run_rails_best_practices' do
+        get dev_run_rails_best_practices_html_report_path
+        assert_redirected_to dev_rails_best_practices_html_report_path
       end
     end
   end

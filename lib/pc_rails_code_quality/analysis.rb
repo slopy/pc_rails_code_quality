@@ -27,5 +27,19 @@ module PcRailsCodeQuality
       Rails.application.load_tasks
       `bundle exec rake pc_reports:simplecov_html` if Rake::Task.task_defined?('pc_reports:simplecov_html')
     end
+
+    def self.run_rails_best_practices_html_report
+      require 'rails_best_practices'
+      FileUtils.mkdir_p('public/reports') unless File.directory?('public/reports')
+      options = { 'format' => 'html',
+                  'output-file' => 'public/reports/rails_best_practices.html',
+                  'exclude' => ['db/migrate', 'vendor'] }
+      analyzer = RailsBestPractices::Analyzer.new(Rails.root, options)
+      my_default_config = PcRailsCodeQuality::Engine.root.to_s + '/config/rails_best_practices.yml'
+      analyzer.class::DEFAULT_CONFIG.replace my_default_config
+      analyzer.generate
+      analyzer.analyze
+      analyzer.output
+    end
   end
 end

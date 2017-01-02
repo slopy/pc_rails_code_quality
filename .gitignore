@@ -11,3 +11,5 @@ test/dummy/tmp/
 /public/
 
 /coverage/
+
+/test/dummy/config/rails_best_practices.yml

@@ -11,6 +11,8 @@ module PcRailsCodeQuality
 
       def simplecov; end
 
+      def rails_best_practices; end
+
       def run_rubocop
         PcRailsCodeQuality::Analysis.run_rubocop_html_report
         redirect_to dev_rubocop_html_report_path
@@ -24,6 +26,11 @@ module PcRailsCodeQuality
       def run_simplecov
         PcRailsCodeQuality::Analysis.run_simplecov_html_report
         redirect_to dev_simplecov_html_report_path
+      end
+
+      def run_rails_best_practices
+        PcRailsCodeQuality::Analysis.run_rails_best_practices_html_report
+        redirect_to dev_rails_best_practices_html_report_path
       end
     end
   end
