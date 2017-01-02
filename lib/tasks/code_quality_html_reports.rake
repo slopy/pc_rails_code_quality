@@ -17,8 +17,13 @@ namespace :pc_reports do
     Rake::Task['test'].invoke if Rake::Task.task_defined?('test')
   end
 
+  task :rails_best_practices_html do
+    PcRailsCodeQuality::Analysis.run_rails_best_practices_html_report
+  end
+
   task :html do
     puts 'Generating html reports...'
-    %w(rubocop_html rubycritic_html).each { |task| Rake::Task["pc_reports:#{task}"].invoke }
+    tasks = %w(rubocop_html rubycritic_html rails_best_practices_html simplecov_html)
+    tasks.each { |task| Rake::Task["pc_reports:#{task}"].invoke }
   end
 end

@@ -27,5 +27,15 @@ module PcRailsCodeQuality
       Rails.application.load_tasks
       `bundle exec rake pc_reports:simplecov_html` if Rake::Task.task_defined?('pc_reports:simplecov_html')
     end
+
+    def self.run_rails_best_practices_html_report
+      require 'rails_best_practices'
+      FileUtils.mkdir_p('public/reports') unless File.directory?('public/reports')
+      output_file = File.open("public/reports/rails_best_practices.html", 'w') { |file| file.write('') }
+      options = { 'format' => 'html', 'with-textmate' => true, 'output-file' => output_file,
+                  'exclude' => ['db/migrate', 'vendor'] }
+      analyzer = RailsBestPractices::Analyzer.new('.', options)
+      analyzer.analyze
+    end
   end
 end
