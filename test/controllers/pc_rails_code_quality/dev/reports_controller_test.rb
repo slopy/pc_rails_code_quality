@@ -37,7 +37,7 @@ module PcRailsCodeQuality
         get dev_run_rubycritic_html_report_path
         assert_redirected_to dev_rubycritic_html_report_path
       end
-      
+
       test '#simplecov' do
         get dev_simplecov_html_report_path
         assert_response :success
