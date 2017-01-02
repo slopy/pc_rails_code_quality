@@ -4,7 +4,11 @@
 [![Build Status](https://travis-ci.org/slopy/pc_rails_code_quality.svg?branch=master)](https://travis-ci.org/slopy/pc_rails_code_quality)
 
 # PcRailsCodeQuality
-This gem is about to make the code better.. 
+This gem is a compilation of usefull rails gems:
+- rubocop
+- rubycritic
+- simplecov
+- rails_best_practices
 
 ## Usage
 How to use my plugin.
@@ -41,11 +45,16 @@ mount PcRailsCodeQuality::Engine => "/"
 
 Then you can access the reports:
 * **rubocop** /dev/reports/rubocop 
-* **rubocop** /dev/reports/rubycritic 
+* **rubycritic** /dev/reports/rubycritic 
+* **simplecov** /dev/reports/simplecov 
+* **rails_best_practices** /dev/reports/rails_best_practices 
 
-
-** SimpleCov
-add require "pc_rails_code_quality/simplecov" to you test_helper or spec_helper
+## SimpleCov
+add 
+```ruby
+require "pc_rails_code_quality/simplecov"
+```
+to your **test_helper or spec_helper**
 
 
 ## Contributing
