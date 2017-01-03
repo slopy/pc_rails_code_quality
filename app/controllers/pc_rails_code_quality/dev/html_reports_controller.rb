@@ -11,6 +11,8 @@ module PcRailsCodeQuality
 
       def simplecov; end
 
+      def tests; end
+
       def rails_best_practices; end
 
       def brakeman; end
@@ -28,6 +30,11 @@ module PcRailsCodeQuality
       def run_simplecov
         PcRailsCodeQuality::Analysis.run_simplecov_html_report
         redirect_to dev_simplecov_html_report_path
+      end
+
+      def run_tests
+        PcRailsCodeQuality::Analysis.run_simplecov_html_report
+        redirect_to dev_tests_html_report_path
       end
 
       def run_rails_best_practices
