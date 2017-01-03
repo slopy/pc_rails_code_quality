@@ -17,7 +17,7 @@ namespace :pc_reports do
   task :simplecov_html do
     puts 'Running simplecov_html'
     sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake test"
-    sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake spec" if defined?(Rspec)
+    sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake spec" if defined?(RSpec)
   end
 
   task :rails_best_practices_html do
