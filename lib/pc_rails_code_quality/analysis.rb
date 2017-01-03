@@ -40,7 +40,7 @@ module PcRailsCodeQuality
 
     def self.run_rails_best_practices_html_report
       require 'rails_best_practices'
-      FileUtils.mkdir_p('public/reports') unless File.directory?('public/reports')
+      FileUtils.mkdir_p("#{Rails.root.to_s}/public/reports") 
       options = { 'format' => 'html',
                   'output-file' => "#{Rails.root.to_s}/public/reports/rails_best_practices.html",
                   'exclude' => ['db/migrate', 'vendor'] }
