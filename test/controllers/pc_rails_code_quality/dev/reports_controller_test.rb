@@ -61,6 +61,23 @@ module PcRailsCodeQuality
         assert_redirected_to dev_simplecov_html_report_path
       end
 
+      test '#tests' do
+        get dev_tests_html_report_path
+        assert_response :success
+      end
+
+      test '#tests iframe' do
+        get dev_tests_html_report_path
+        assert_select 'iframe#tests-html-report'
+        assert_select 'iframe#tests-html-report', src: /tests/
+      end
+
+      test '#run_tests' do
+        get dev_run_tests_html_report_path
+        assert File.open(Rails.root + 'public/reports/tests/index.html')
+        assert_redirected_to dev_tests_html_report_path
+      end
+      
       test '#rails_best_practices' do
         get dev_rails_best_practices_html_report_path
         assert_response :success
