@@ -17,11 +17,22 @@ module PcRailsCodeQuality
                               html_reporter]
 
     if defined? RSpec
-      RSpec.configure do |config|
-        config.color = true
-        config.formatter = 'html'
-        config.output_stream = File.open("#{Rails.root}/public/reports/tests/index.html", 'w')
+
+      class MyCustomHtmlFormatter < RSpec::Core::Formatters::HtmlFormatter
+        # fully working RSpec 2 HTML formatter
       end
+
+      config = RSpec.configuration
+
+      # we want to use colored output for the console, right?
+      config.color_enabled = true
+
+      documentation_formatter = config.send(:built_in_formatter, :documentation).new(config.output)
+      output_file = File.open("#{Rails.root}/public/reports/tests/index.html", "w")
+      custom_formatter = MyCustomHtmlFormatter.new(output_file)
+      reporter = RSpec::Core::Reporter.new(documentation_formatter, custom_formatter)
+
+      config.instance_variable_set(:@reporter, reporter)
     end
   end
 end
