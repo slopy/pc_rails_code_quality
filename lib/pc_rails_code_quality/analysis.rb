@@ -28,16 +28,17 @@ module PcRailsCodeQuality
       RubyCritic::Cli::Application.new(arguments).execute
     end
 
-    def self.run_simplecov_html_report
-      require 'rake'
-      Rake::Task.clear
-      Rails.application.load_tasks
-      if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
-        Rake::Task['app:pc_reports:simplecov_html'].invoke
-      elsif Rake::Task.task_defined?('pc_reports:simplecov_html')
-        Rake::Task['pc_reports:simplecov_html'].invoke
-      end
-    end
+    # https://github.com/slopy/pc_rails_code_quality/issues/13
+    # def self.run_simplecov_html_report
+    #   require 'rake'
+    #   Rake::Task.clear
+    #   Rails.application.load_tasks
+    #   if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
+    #     Rake::Task['app:pc_reports:simplecov_html'].invoke
+    #   elsif Rake::Task.task_defined?('pc_reports:simplecov_html')
+    #     Rake::Task['pc_reports:simplecov_html'].invoke
+    #   end
+    # end
 
     def self.run_rails_best_practices_html_report
       require 'rails_best_practices'
