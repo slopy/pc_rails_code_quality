@@ -17,7 +17,16 @@ namespace :pc_reports do
   task :simplecov_html do
     puts 'Running simplecov_html'
     sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake test"
-    sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake spec" if defined?(RSpec)
+    if defined?(RSpec)
+      output_file = "#{Rails.root}/public/reports/tests/index.html"
+      command = "cd #{Rails.root} && RAILS_ENV=test bundle exec rspec spec/"
+      command += ' --format documentation --format html'
+      version = RSpec::Core::Version::STRING[0]
+      version == '3' ? html_output = '--out index.html' : '--o index.html'
+      command += html_output
+      system command
+      system "cd #{Rails.root} && mv index.html #{output_file}"
+    end
   end
 
   task :rails_best_practices_html do
