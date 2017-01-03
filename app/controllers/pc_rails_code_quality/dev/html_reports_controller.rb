@@ -12,7 +12,7 @@ module PcRailsCodeQuality
       def simplecov; end
 
       def rails_best_practices; end
-      
+
       def brakeman; end
 
       def run_rubocop

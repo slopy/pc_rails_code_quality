@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 module PcRailsCodeQuality
   # :nodoc:
-  
   class Analysis
-
     # Run all reports
     def self.run_html_reports
       run_rubocop_html_report
@@ -19,8 +17,8 @@ module PcRailsCodeQuality
       rubocop = RuboCop::CLI.new
       options = []
       options.push '-fhtml'
-      options.push "-o#{Rails.root.to_s}/public/reports/rubocop.html"
-      options.push "#{Rails.root.to_s}"
+      options.push "-o#{Rails.root}/public/reports/rubocop.html"
+      options.push Rails.root.to_s
       rubocop.run(options)
     end
 
@@ -33,16 +31,18 @@ module PcRailsCodeQuality
     def self.run_simplecov_html_report
       Rake::Task.clear
       Rails.application.load_tasks
-      Rake::Task['app:pc_reports:simplecov_html'].invoke if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
-      return if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
-      Rake::Task['pc_reports:simplecov_html'].invoke if Rake::Task.task_defined?('pc_reports:simplecov_html')
+      if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
+        Rake::Task['app:pc_reports:simplecov_html'].invoke
+      elsif Rake::Task.task_defined?('pc_reports:simplecov_html')
+        Rake::Task['pc_reports:simplecov_html'].invoke
+      end
     end
 
     def self.run_rails_best_practices_html_report
       require 'rails_best_practices'
-      FileUtils.mkdir_p("#{Rails.root.to_s}/public/reports") 
+      FileUtils.mkdir_p("#{Rails.root}/public/reports")
       options = { 'format' => 'html',
-                  'output-file' => "#{Rails.root.to_s}/public/reports/rails_best_practices.html",
+                  'output-file' => "#{Rails.root}/public/reports/rails_best_practices.html",
                   'exclude' => ['db/migrate', 'vendor'] }
       analyzer = RailsBestPractices::Analyzer.new(Rails.root.to_s, options)
       my_default_config = PcRailsCodeQuality::Engine.root.to_s + '/config/rails_best_practices.yml'
@@ -57,7 +57,7 @@ module PcRailsCodeQuality
       options = {
         app_path: Rails.root.to_s,
         print_report: true,
-        output_files: ["#{Rails.root.to_s}/public/reports/brakeman.html"]
+        output_files: ["#{Rails.root}/public/reports/brakeman.html"]
       }
       Brakeman.run options
     end
