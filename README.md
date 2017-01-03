@@ -51,10 +51,10 @@ Then you can access the reports:
 * **simplecov** /dev/reports/simplecov 
 * **rails_best_practices** /dev/reports/rails_best_practices 
 
-## SimpleCov
+## Test reports
 add 
 ```ruby
-require "pc_rails_code_quality/simplecov"
+require "pc_rails_code_quality/tests"
 ```
 to your **test_helper or spec_helper**
 

@@ -3,6 +3,7 @@ PATH
   specs:
     pc_rails_code_quality (0.1.0)
       brakeman (~> 3.4.1)
+      minitest-reporters (~> 1.1.13)
       rails (~> 5.0.0)
       rails_best_practices (~> 1.17.0)
       rubocop (~> 0.46.0)
@@ -51,6 +52,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    ansi (1.5.0)
     arel (7.1.4)
     ast (2.3.0)
     axiom-types (0.1.1)
@@ -101,6 +103,11 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    minitest-reporters (1.1.13)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     nio4r (1.2.1)
     nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
@@ -114,7 +121,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_suffix (2.0.4)
+    public_suffix (2.0.5)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)

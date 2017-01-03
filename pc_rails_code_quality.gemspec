@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'simplecov', '~> 0.12.0'
   s.add_dependency 'rails_best_practices', '~> 1.17.0'
   s.add_dependency 'brakeman', '~> 3.4.1'
+  s.add_dependency 'minitest-reporters', '~> 1.1.13'
 end
