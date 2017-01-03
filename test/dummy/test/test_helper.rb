@@ -4,7 +4,7 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-require "pc_rails_code_quality/simplecov"
+require "pc_rails_code_quality/tests"
 
 class ActiveSupport::TestCase
   include ActionDispatch::TestProcess
