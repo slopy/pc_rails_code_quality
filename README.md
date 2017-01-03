@@ -17,7 +17,9 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pc_rails_code_quality', :git => 'https://github.com/slopy/pc_rails_code_quality'
+group :development, :test do
+  gem 'pc_rails_code_quality', :git => 'https://github.com/slopy/pc_rails_code_quality'
+end
 ```
 
 And then execute:
