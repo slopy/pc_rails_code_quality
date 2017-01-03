@@ -9,5 +9,7 @@ PcRailsCodeQuality::Engine.routes.draw do
     get 'html_reports/run_simplecov', as: :run_simplecov_html_report
     get 'html_reports/rails_best_practices', as: :rails_best_practices_html_report
     get 'html_reports/run_rails_best_practices', as: :run_rails_best_practices_html_report
+    get 'html_reports/brakeman', as: :brakeman_html_report
+    get 'html_reports/run_brakeman', as: :run_brakeman_html_report
   end
 end
