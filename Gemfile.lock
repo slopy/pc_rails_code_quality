@@ -2,12 +2,12 @@ PATH
   remote: .
   specs:
     pc_rails_code_quality (0.1.0)
-      brakeman (~> 3)
-      minitest-reporters (~> 1)
+      brakeman (>= 3.0.0)
+      minitest-reporters (>= 1.0.0)
       rails (>= 4.0.0)
-      rails_best_practices (~> 1)
-      rubocop (>= 0.30.0)
-      rubycritic (~> 3)
+      rails_best_practices (>= 0.6.0)
+      rubocop (>= 0.38.0)
+      rubycritic (>= 2.5.0)
       simplecov (>= 0.10.0)
 
 GEM
