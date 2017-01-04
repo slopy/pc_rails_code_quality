@@ -34,7 +34,7 @@ module PcRailsCodeQuality
       command = "cd #{Rails.root} && RAILS_ENV=test bundle exec rspec spec/"
       command += ' --format documentation --format html'
       version = RSpec::Core::Version::STRING[0]
-      version == '3' ? html_output = '--out index.html' : '--o index.html'
+      version == '3' ? html_output = ' --out index.html' : ' --o index.html'
       command += html_output
       system command
       system "cd #{Rails.root} && mv index.html #{output_file}"

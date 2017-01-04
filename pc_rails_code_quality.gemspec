@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '>= 4.0.0'
   s.add_dependency 'rubocop', '>= 0.38.0'
   s.add_dependency 'rubycritic', '>= 2.5.0'
-  s.add_dependency 'simplecov', '>= 0.10.0'
+  s.add_dependency 'simplecov', '>= 0.7.1'
   s.add_dependency 'rails_best_practices', '>= 0.6.0'
   s.add_dependency 'brakeman', '>= 3.0.0'
   s.add_dependency 'minitest-reporters', '>= 1.0.0'
