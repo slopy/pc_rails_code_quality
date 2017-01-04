@@ -41,6 +41,19 @@ Add to you routes.rb
 mount PcRailsCodeQuality::Engine => "/"
 ```
 
+To show menu on other pages
+
+In ApplicationController
+```ruby
+  helper PcRailsCodeQuality::ApplicationHelper
+```
+
+In layout file
+```erb
+  <%= stylesheet_link_tag "pc_rails_code_quality/application.css" %>
+  <%= code_quality_fixed_menu %>
+```
+
 Then you can access the reports:
 * **rubocop** /dev/reports/rubocop 
 * **rubycritic** /dev/reports/rubycritic 
