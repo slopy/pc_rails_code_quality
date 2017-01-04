@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 require 'test_helper'
 class CodeQualityHtmlReportsRakeTaskTest < ActiveSupport::TestCase
-
-  setup do 
+  setup do
     require 'rake'
     Rake::Task.define_task :environment
     Rails.application.load_tasks
   end
 
-  teardown do 
+  teardown do
     Rake::Task.clear
     FileUtils.rm_rf(Rails.root + 'public/reports')
   end
@@ -20,7 +19,7 @@ class CodeQualityHtmlReportsRakeTaskTest < ActiveSupport::TestCase
     assert File.exist?(Rails.root + 'public/reports/ruby_critic/overview.html')
     assert File.exist?(Rails.root + 'public/reports/tests/index.html')
     assert File.exist?(Rails.root + 'public/reports/rails_best_practices.html')
-    assert File.exist?(Rails.root + 'public/reports/brakeman.html')
     assert File.exist?(Rails.root + 'public/reports/simplecov/index.html')
+    assert File.exist?(Rails.root + 'public/reports/brakeman.html')
   end
 end
