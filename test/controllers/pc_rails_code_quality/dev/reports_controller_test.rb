@@ -57,8 +57,7 @@ module PcRailsCodeQuality
 
       test '#run_simplecov' do
         get dev_run_simplecov_html_report_path
-        # moved to spawn()
-        # assert File.open(Rails.root + 'public/reports/simplecov/index.html')
+        assert File.open(Rails.root + 'public/reports/simplecov/index.html')
         assert_redirected_to dev_simplecov_html_report_path
       end
 
@@ -75,8 +74,7 @@ module PcRailsCodeQuality
 
       test '#run_tests' do
         get dev_run_tests_html_report_path
-        # moved to spawn()
-        # assert File.open(Rails.root + 'public/reports/tests/index.html')
+        assert File.open(Rails.root + 'public/reports/tests/index.html')
         assert_redirected_to dev_tests_html_report_path
       end
 
