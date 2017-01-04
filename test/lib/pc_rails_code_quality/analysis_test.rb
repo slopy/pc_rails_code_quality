@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 require 'test_helper'
 class PcRailsCodeQuality::Analysis::Test < ActiveSupport::TestCase
-
-
   test '#run_html_reports' do
     assert_respond_to(PcRailsCodeQuality::Analysis, :run_html_reports)
   end

@@ -3,21 +3,19 @@ namespace :pc_reports do
   require 'rubocop/rake_task'
 
   # HTML
-  RuboCop::RakeTask.new(:rubocop_html) do |tsk|
+  task :rubocop_html do
     puts 'Running rubocop_html'
-    tsk.options = ['-fhtml', '-opublic/reports/rubocop.html']
-    tsk.fail_on_error = false
+    PcRailsCodeQuality::Analysis.run_rubocop_html_report
   end
 
   task :rubycritic_html do
     puts 'Running rubycritic_html'
-    sh 'rubycritic app lib -p public/reports/ruby_critic --no-browser --format html'
+    PcRailsCodeQuality::Analysis.run_rubycritic_html_report
   end
 
   task :simplecov_html do
     puts 'Running simplecov_html'
-    sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake test"
-    sh "cd #{Rails.root} && RAILS_ENV=test bundle exec rake spec" if defined?(RSpec)
+    PcRailsCodeQuality::Analysis.run_simplecov_html_report
   end
 
   task :rails_best_practices_html do
@@ -32,7 +30,10 @@ namespace :pc_reports do
 
   task :html do
     puts 'Generating html reports...'
-    tasks = %w(rubocop_html rubycritic_html rails_best_practices_html simplecov_html brakeman_html)
-    tasks.each { |task| Rake::Task["pc_reports:#{task}"].invoke }
+    tasks = %w(simplecov_html rubocop_html rubycritic_html rails_best_practices_html brakeman_html)
+    tasks.each do |task|
+      Rake::Task["pc_reports:#{task}"].reenable
+      Rake::Task["pc_reports:#{task}"].invoke
+    end
   end
 end

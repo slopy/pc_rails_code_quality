@@ -9,6 +9,7 @@ This gem is a compilation of usefull rails gems:
 - rubycritic
 - simplecov
 - rails_best_practices
+- brakeman
 
 ## Usage
 How to use my plugin.
@@ -27,11 +28,6 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install pc_rails_code_quality
-```
-
 ## Generating reports
 
 ```bash
@@ -48,8 +44,10 @@ mount PcRailsCodeQuality::Engine => "/"
 Then you can access the reports:
 * **rubocop** /dev/reports/rubocop 
 * **rubycritic** /dev/reports/rubycritic 
+* **tests** /dev/reports/tests 
 * **simplecov** /dev/reports/simplecov 
 * **rails_best_practices** /dev/reports/rails_best_practices 
+* **brakeman** /dev/reports/brakeman 
 
 ## Test reports
 add 

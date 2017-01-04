@@ -9,7 +9,6 @@ module PcRailsCodeQuality
       run_rails_best_practices_html_report
       run_simplecov_html_report
       run_brakeman_html_report
-      true
     end
 
     def self.run_rubocop_html_report
@@ -29,14 +28,16 @@ module PcRailsCodeQuality
     end
 
     def self.run_simplecov_html_report
-      require 'rake'
-      Rake::Task.clear
-      Rails.application.load_tasks
-      if Rake::Task.task_defined?('app:pc_reports:simplecov_html')
-        Rake::Task['app:pc_reports:simplecov_html'].invoke
-      elsif Rake::Task.task_defined?('pc_reports:simplecov_html')
-        Rake::Task['pc_reports:simplecov_html'].invoke
-      end
+      system "cd #{Rails.root} && RAILS_ENV=test bundle exec rake test"
+      return unless defined?(RSpec)
+      output_file = "#{Rails.root}/public/reports/tests/index.html"
+      command = "cd #{Rails.root} && RAILS_ENV=test bundle exec rspec spec/"
+      command += ' --format documentation --format html'
+      version = RSpec::Core::Version::STRING[0]
+      version == '3' ? html_output = '--out index.html' : '--o index.html'
+      command += html_output
+      system command
+      system "cd #{Rails.root} && mv index.html #{output_file}"
     end
 
     def self.run_rails_best_practices_html_report
@@ -61,6 +62,10 @@ module PcRailsCodeQuality
         output_files: ["#{Rails.root}/public/reports/brakeman.html"]
       }
       Brakeman.run options
+    rescue NoMethodError => e
+      # Some Brakeman issue ?
+      # brakeman-3.4.1/lib/brakeman/processors/lib/processor_helper.rb:4:in `process_all'
+      puts "... Brakeman error rised #{e}"
     end
   end
 end

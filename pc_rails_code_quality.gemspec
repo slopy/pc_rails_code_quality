@@ -17,11 +17,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'rails', '~> 5.0.0'
-  s.add_dependency 'rubocop', '~> 0.46.0'
-  s.add_dependency 'rubycritic', '~> 3.1.3'
-  s.add_dependency 'simplecov', '~> 0.12.0'
-  s.add_dependency 'rails_best_practices', '~> 1.17.0'
-  s.add_dependency 'brakeman', '~> 3.4.1'
-  s.add_dependency 'minitest-reporters', '~> 1.1.13'
+  s.add_dependency 'rails', '>= 4.0.0'
+  s.add_dependency 'rubocop', '>= 0.30.0'
+  s.add_dependency 'rubycritic', '~> 3'
+  s.add_dependency 'simplecov', '>= 0.10.0'
+  s.add_dependency 'rails_best_practices', '~> 1'
+  s.add_dependency 'brakeman', '~> 3'
+  s.add_dependency 'minitest-reporters', '~> 1'
 end
