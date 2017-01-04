@@ -1,2 +1,15 @@
-<%= link_to 'Re-run', dev_run_simplecov_html_report_path %>
-<iframe height="100%" id="simplecov-html-report" name="<%= Time.now %>" src="/reports/simplecov/index.html?pp=disable" width="100%"></iframe>
+<div class="code-quality-container">
+  <%= link_to 'Re-run', dev_run_simplecov_html_report_path, class: 'code-quality-button' %>
+  <div class="info">
+    To run test as a rake task use: <br/>
+    <b>rake pc_reports:simplecov_html </b>
+  </div>
+  <% if File.exists?(Rails.root.join("public/reports/simplecov/index.html")) %>
+    <iframe height="100%" id="simplecov-html-report" name="<%= Time.now %>" src="/reports/simplecov/index.html?pp=disable" width="100%"></iframe>
+  <% else %>
+    <div class="no-report">
+      No report yet
+    </div>
+  <% end %>
+</div>
+

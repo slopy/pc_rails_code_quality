@@ -1,2 +1,10 @@
-<%= link_to 'Re-run', dev_run_rails_best_practices_html_report_path %>
-<iframe height="100%" id="rails_best_practices-html-report" name="<%= Time.now %>" src="/reports/rails_best_practices.html" width="100%"></iframe>
+<div class="code-quality-container">
+  <%= link_to 'Re-run', dev_run_rails_best_practices_html_report_path, class: 'code-quality-button' %>
+  <% if File.exists?(Rails.root.join("public/reports/rails_best_practices.html")) %>
+     <iframe height="100%" id="rails_best_practices-html-report" name="<%= Time.now %>" src="/reports/rails_best_practices.html?pp=disable" width="100%"></iframe>
+  <% else %>
+    <div class="no-report">
+      No report yet
+    </div>
+  <% end %>
+</div>
