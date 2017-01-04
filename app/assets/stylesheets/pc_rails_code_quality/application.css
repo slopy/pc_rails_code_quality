@@ -36,6 +36,12 @@
   margin-right: 10px;
 }
 
+.code-quality-container .no-report {
+  width: 100%;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
 .code-quality-nav {
   position: fixed;
   bottom: 0;

@@ -1,4 +1,11 @@
 <div class="code-quality-container">
   <%= link_to 'Re-run', dev_run_brakeman_html_report_path, class: 'code-quality-button' %>
-  <iframe height="100%" id="brakeman-html-report" name="<%= Time.now %>" src="/reports/brakeman.html?pp=disable" width="100%"></iframe>
+  <% if File.exists?(Rails.root.join("public/reports/brakeman.html")) %>
+    <iframe height="100%" id="brakeman-html-report" name="<%= Time.now %>" src="/reports/brakeman.html?pp=disable" width="100%"></iframe>
+  <% else %>
+    <div class="no-report">
+      No report yet
+    </div>
+  <% end %>
 </div>
+

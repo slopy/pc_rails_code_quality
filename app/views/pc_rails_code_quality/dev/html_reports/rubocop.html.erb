@@ -1,4 +1,10 @@
 <div class="code-quality-container">
   <%= link_to 'Re-run', dev_run_rubocop_html_report_path, class: 'code-quality-button' %>
-  <iframe height="100%" id="rubocop-html-report" name="<%= Time.now %>" src="/reports/rubocop.html" width="100%"></iframe>
+  <% if File.exists?(Rails.root.join("public/reports/rubocop.html")) %>
+    <iframe height="100%" id="rubocop-html-report" name="<%= Time.now %>" src="/reports/rubocop.html?pp=disable" width="100%"></iframe>
+  <% else %>
+    <div class="no-report">
+      No report yet
+    </div>
+  <% end %>
 </div>
