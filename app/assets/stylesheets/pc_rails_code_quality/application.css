@@ -31,9 +31,8 @@
 }
 
 .code-quality-container .info {
-  display: inline-block;
-  float: right;
   margin-right: 10px;
+  float: right;
 }
 
 .code-quality-container .no-report {
